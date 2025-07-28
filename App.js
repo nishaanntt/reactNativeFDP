@@ -1,24 +1,25 @@
-// 1. Platform.OS
-// 2. Platform.select
-// 3. Platform specific extensions
+import {
+	Platform,
+	SafeAreaView,
+	ScrollView,
+	StyleSheet,
+	View,
+} from 'react-native';
 
-import { Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-
-import CustomButton from './components/CustomButton/CustomButton';
+import PokemonCard from './components/PokemonCard';
+import { PokemonData } from './PokemonData';
 
 const App = () => {
+	const { pikachu, charmander, squirtle, bulbasaur } = PokemonData;
 	return (
-		// <SafeAreaView style={styles.safeContainer}>
-		<View style={styles.container}>
-			<View style={styles.box}>
-				<Text style={styles.text}>Welcome</Text>
-			</View>
-			{/* <CustomButton
-					onPress={() => console.log('ios button pressed')}
-					title='iOS Button'
-				/> */}
-		</View>
-		// </SafeAreaView>
+		<SafeAreaView style={styles.container}>
+			<ScrollView>
+				<PokemonCard {...bulbasaur} />
+				<PokemonCard {...charmander} />
+				<PokemonCard {...squirtle} />
+				<PokemonCard {...pikachu} />
+			</ScrollView>
+		</SafeAreaView>
 	);
 };
 
@@ -27,30 +28,7 @@ export default App;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'plum',
-		// paddingTop: Platform.OS === 'android' ? 25 : 0,
-	},
-	box: {
-		padding: 20,
-	},
-	text: {
-		fontSize: 24,
-		// ...Platform.select({
-		// 	ios: {
-		// 		fontSize: 50,
-		// 		color: 'white',
-		// 		fontStyle: 'italic',
-		// 	},
-		// 	android: {
-		// 		fontSize: 24,
-		// 		color: 'purple',
-		// 	},
-		// }),
-		fontWeight: 'bold',
-		textAlign: 'center',
-	},
-	safeContainer: {
-		flex: 1,
-		backgroundColor: 'plum',
+		backgroundColor: '#f5f5f5',
+		paddingTop: Platform.OS === 'android' ? 25 : 0,
 	},
 });
