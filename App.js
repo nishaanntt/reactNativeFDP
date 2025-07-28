@@ -1,11 +1,24 @@
-import Greet from './components/Greet';
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+const App = () => {
 	return (
-		<View style={{ backgroundColor: 'pink', flex: 1, padding: 60 }}>
-			<Greet name='Nishant' />
-			<Greet name='John' />
+		<View style={styles.container}>
+			<Text style={styles.text}>StyleSheet API</Text>
 		</View>
 	);
-}
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: 'plum',
+		padding: 60,
+	},
+	text: {
+		fontSize: 24,
+		fontWeight: '700',
+		color: '#fff',
+	},
+});
