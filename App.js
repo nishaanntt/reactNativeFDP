@@ -1,26 +1,62 @@
-import { StyleSheet, View } from 'react-native';
-
-import Box from './components/Box';
+import {
+	Dimensions,
+	StyleSheet,
+	Text,
+	View,
+	useWindowDimensions,
+} from 'react-native';
 
 const App = () => {
+	// const windowWidth = useWindowDimensions().width;
+	// const windowHeight = useWindowDimensions().height;
 	return (
 		<View style={styles.container}>
-			<Box style={{ backgroundColor: 'pink' }}>Box 1</Box>
-			<Box style={{ backgroundColor: 'plum' }}>Box 2</Box>
-			<Box style={{ backgroundColor: 'lightblue' }}>Box 3</Box>
-			<Box style={{ backgroundColor: 'lightgreen' }}>Box 4</Box>
-			<Box style={{ backgroundColor: 'skyblue' }}>Box 5</Box>
+			<View
+				style={[
+					styles.box,
+					// {
+					// 	width: windowWidth > 500 ? '70%' : '90%',
+					// 	height: windowHeight > 600 ? '60%' : '90%',
+					// },
+				]}>
+				<Text
+					style={[
+						styles.text,
+						// {
+						// 	fontSize: windowWidth > 500 ? 50 : 24,
+						// },
+					]}>
+					Welcome
+				</Text>
+			</View>
 		</View>
 	);
 };
 
 export default App;
 
+// const windowWidth = Dimensions.get('window').width;
+// const windowHeight = Dimensions.get('window').height;
+// Drawback of Dimensions API - The dimensions change with orientation and the API does not dynamically update with refresh
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		marginTop: 64,
-		borderWidth: 6,
-		borderColor: 'red',
+		backgroundColor: 'plum',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	box: {
+		width: 300,
+		// width: windowWidth > 500 ? '70%' : '90%',
+		height: 300,
+		// height: windowHeight > 600 ? '60%' : '90%',
+		backgroundColor: 'lightblue',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	text: {
+		fontSize: 24,
+		// fontSize: windowWidth > 500 ? 50 : 24,
 	},
 });
