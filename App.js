@@ -3,6 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 const App = () => {
 	return (
 		<View style={styles.container}>
+			<View style={styles.darkMode}>
+				<Text style={styles.darkModeText}>Style Inheritance</Text>
+			</View>
 			<View style={[styles.box, styles.lightblueBg, styles.boxShadow]}>
 				{/* The box shadow property will only be visible in iOS */}
 				<Text>Lightblue Box</Text>
@@ -22,17 +25,21 @@ const styles = StyleSheet.create({
 		backgroundColor: 'plum',
 		padding: 60,
 	},
+	darkMode: {
+		backgroundColor: 'black',
+		color: 'white', //no change. does not support style Inheritance unlike web
+	},
+	darkModeText: {
+		color: 'white',
+	},
 	boxShadow: {
-		//applies only on iOS
-		// box-shadow: h-offset v-offset blur spread color
-		shadowColor: 'blue', // only property that works both on android and iOS
+		shadowColor: 'blue',
 		shadowOffset: {
-			// can be positive or negative
 			width: 6,
 			height: 6,
 		},
-		shadowOpacity: 0.6, // ranges from 0 to 1. Transparency of the shadow
-		shadowRadius: 4, // sets the blur radius. Larger value = larger and lighter blur making the shadow more prominent
+		shadowOpacity: 0.6,
+		shadowRadius: 4,
 	},
 	androidShadow: {
 		elevation: 10,
