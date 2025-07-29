@@ -8,17 +8,21 @@ const App = () => {
 		<SafeAreaView>
 			<View style={{ paddingHorizontal: 16 }}>
 				<TextInput
-					style={{
-						borderWidth: 2,
-						padding: 10,
-						margin: 12,
-						color: '#fff',
-					}}
+					style={styles.textinput}
 					placeholder='Enter Name'
 					value={name}
 					onChangeText={setName}
+					// secureTextEntry
+					// keyboardType='numeric'
+					// autoCorrect={false}
+					// autoCapitalize=''              // characters, sentence, words'
 				/>
 				<Text style={{ fontSize: 24 }}>Hi, my name is {name}</Text>
+				<TextInput
+					style={[styles.textinput, styles.multilineText]}
+					placeholder='multiline text input'
+					multiline
+				/>
 			</View>
 		</SafeAreaView>
 	);
@@ -26,4 +30,14 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	textinput: {
+		borderWidth: 2,
+		padding: 10,
+		margin: 12,
+	},
+	multilineText: {
+		minHeight: 100,
+		textAlignVertical: 'top', //top aligned on iOS, centered on Android
+	},
+});
