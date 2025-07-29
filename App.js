@@ -5,11 +5,11 @@ const App = () => {
 	const [name, setName] = useState('');
 	console.log('name: ', name);
 	return (
-		<SafeAreaView style={{ backgroundColor: 'pink', flex: 1 }}>
+		<SafeAreaView>
 			<View style={{ paddingHorizontal: 16 }}>
 				<TextInput
 					style={{
-						backgroundColor: '#ddd',
+						borderWidth: 2,
 						padding: 10,
 						margin: 12,
 						color: '#fff',
