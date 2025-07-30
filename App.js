@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
+import AddPost from './screens/AddPost';
 import Details from './screens/Details';
 import { FIREBASE_AUTH } from './FirebaseConfig';
 import Home from './screens/Home';
 import Login from './screens/Login';
 import { NavigationContainer } from '@react-navigation/native';
+import PostList from './screens/PostList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -17,6 +19,8 @@ function HomeStackLayout() {
 		<HomeStack.Navigator>
 			<HomeStack.Screen name='Home' component={Home} />
 			<HomeStack.Screen name='Details' component={Details} />
+			<HomeStack.Screen name='Add Post' component={AddPost} />
+			<HomeStack.Screen name='Post List' component={PostList} />
 		</HomeStack.Navigator>
 	);
 }

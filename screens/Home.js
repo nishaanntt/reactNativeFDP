@@ -7,6 +7,10 @@ const Home = ({ navigation }) => {
 		<View>
 			<Button title='Details' onPress={() => navigation.navigate('Details')} />
 			<Button title='Sign Out' onPress={() => FIREBASE_AUTH.signOut()} />
+			<Button
+				title='Add Post'
+				onPress={() => navigation.navigate('Add Post')}
+			/>
 		</View>
 	);
 };
